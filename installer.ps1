@@ -6,16 +6,16 @@ if ($PsUICulture -eq  "fr-FR")
 $UserMessages = DATA
 {    ConvertFrom-StringData @'
         gitInstallation = Installation de git
-        notInstalledIn = non installé dans
+        notInstalledIn = non installÃ© dans
         gitClone = installation avec git clone...
-        notInstall = Le Modloader n'est pas installé
+        notInstall = Le Modloader n'est pas installÃ©
         icoDesc = Civilization VI - CivFR
-        shortcutCreated = Icone crée sur le Bureau : Civ6-BBG!
-        notEmpty = Dossier de Mods non vide, souhaitez-vous supprimer tout les mods à l'interieurs ? (o)ui ou (n)on
+        shortcutCreated = Icone crÃ©e sur le Bureau : Civ6-BBG!
+        notEmpty = Dossier de Mods non vide, souhaitez-vous supprimer tout les mods Ã  l'interieurs ? (o)ui ou (n)on
         yes = o
         no = n
-        done = installation terminée
-        alreadyInstall = deja installé
+        done = installation terminÃ©e
+        alreadyInstall = deja installÃ©
         fileIco = launcher_CivFR.ico
 '@
 }
@@ -120,7 +120,7 @@ if(!(Test-Path -Path $($documents+"\My Games\Sid Meier's Civilization VI\UpdateG
         ls $($documents+"\My Games\Sid Meier's Civilization VI\Mods")
         $rmModFolder = Read-Host -Prompt $($UserMessages.notEmpty)
         Write-Host $rmModFolder
-        if ($rmModFolder = $UserMessages.yes){
+        if ($rmModFolder -eq $UserMessages.yes){
             "ok"
             Get-ChildItem -Path $($documents+"\My Games\Sid Meier's Civilization VI\Mods") -Recurse | Remove-Item -force -recurse
         }
