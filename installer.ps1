@@ -91,21 +91,21 @@ function createIcon() {
     $Shortcut = $WshShell.CreateShortcut($Path)
     $Shortcut.TargetPath = $targetPath
     $Shortcut.Arguments  = $Arguments
-    $Shortcut.IconLocation = $($documents+"\My Games\Sid Meier's Civilization VI\UpdateGitModCiv\"+$culture+"\"+$UserMessages.fileIco)
+    $Shortcut.IconLocation = $($documents+"\My Games\Sid Meier's Civilization VI\Modloader\"+$culture+"\"+$UserMessages.fileIco)
     $Shortcut.Save()
 }
 
 #Conf
 $documents=[environment]::getfolderpath("mydocuments")
 $desktop=[environment]::getfolderpath("desktop")
-$documents+"\My Games\Sid Meier's Civilization VI\UpdateGitModCiv"
-$gitUpdategitCiv = "https://github.com/Wafhi3n/UpdateGitModCiv"
+$documents+"\My Games\Sid Meier's Civilization VI\Modloader"
+$gitUpdategitCiv = "https://github.com/Wafhi3n/Modloader"
 $env:GIT_REDIRECT_STDERR = '2>&1'
 
-if(!(Test-Path -Path $($documents+"\My Games\Sid Meier's Civilization VI\UpdateGitModCiv"))){
+if(!(Test-Path -Path $($documents+"\My Games\Sid Meier's Civilization VI\Modloader"))){
     #installation
     Write-Host $($UserMessages.notInstall)
-    $com = $documents+"\My Games\Sid Meier's Civilization VI\UpdateGitModCiv\majGitCiv.ps1"
+    $com = $documents+"\My Games\Sid Meier's Civilization VI\Modloader\majGitCiv.ps1"
     VerifGit
     #Verification de Modloader
     VerifAndInstallWithGit $gitUpdategitCiv $($documents+"\My Games\Sid Meier's Civilization VI")
